@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block title %}User Detail Page{% endblock %} {%
+block content %}
+<div>
+	<div class="container mt-5">
+		<div class="card">
+			<div class="row g-0">
+				<div class="col-md-4">
+					<img
+						class="img-fluid rounded-start"
+						src="{{user.image_url}}"
+						alt="profile picture"
+					/>
+				</div>
+				<div class="col-md-8">
+					<div class="card-body"></div>
+					<h2 class="card-title">{{user.first_name}} {{user.last_name}}</h2>
+					<button
+						type="button"
+						class="btn btn-primary"
+						id="editUser"
+						onclick="location.href = '/users/{{user.id}}/edit'"
+					>
+						Edit
+					</button>
+					<button
+						type="button"
+						class="btn btn-danger"
+						id="deleteUser"
+						onclick="location.href = '/users/{{user.id}}/delete'"
+					>
+						Delete
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		type="button"
+		class="btn btn-secondary"
+		id="user-return"
+		onclick="location.href = '/'"
+	>
+		Return to Users
+	</button>
+</div>
+{% endblock %}

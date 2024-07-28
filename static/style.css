@@ -1,0 +1,42 @@
+a {
+	text-decoration: none;
+}
+
+ul {
+	padding-left: 50px;
+}
+
+body {
+	margin: 20px 30px;
+}
+
+div {
+	padding: 8px 5px;
+	width: 40rem;
+}
+
+button {
+	margin: 7px 3px;
+	position: relative;
+	justify-self: right;
+}
+
+label {
+	padding-bottom: 5px;
+}
+
+.buttons-div {
+	display: flex;
+	justify-content: right;
+}
+
+.card-body {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+img {
+	padding-right: 10px;
+}
