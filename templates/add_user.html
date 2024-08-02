@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block title %} New User Form Page{% endblock %} {%
+block content %}
+
+<h1>Create a user</h1>
+<form action="/users/new" method="POST">
+	<div class="form-group row">
+		<label for="first-name" class="col-sm-2 col-form-label">First Name</label>
+		<div class="col-sm-10">
+			<input
+				type="text"
+				name="first-name"
+				id="first-name"
+				placeholder="Enter a first name"
+				class="form-control"
+				required
+			/>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="last-name" class="col-sm-2 col-form-label">Last Name</label>
+		<div class="col-sm-10">
+			<input
+				type="text"
+				name="last-name"
+				id="last-name"
+				placeholder="Enter a last name"
+				class="form-control"
+				required
+			/>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="image-url" class="col-sm-2 col-form-label">Image URL</label>
+		<div class="col-sm-10">
+			<input
+				type="text"
+				name="image-url"
+				id="image-url"
+				placeholder="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"
+				class="form-control"
+			/>
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-sm-10 buttons-div">
+			<button type="button" class="btn btn-dark" onclick="location.href = '/'">
+				Cancel
+			</button>
+			<button type="submit" class="btn btn-success" id="addUser">Add</button>
+		</div>
+	</div>
+</form>
+
+{% endblock %}

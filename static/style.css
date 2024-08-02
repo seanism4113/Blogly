@@ -21,22 +21,11 @@ button {
 	justify-self: right;
 }
 
-label {
-	padding-bottom: 5px;
-}
-
 .buttons-div {
 	display: flex;
 	justify-content: right;
 }
 
-.card-body {
-	width: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-img {
-	padding-right: 10px;
+#author {
+	font-style: italic;
 }

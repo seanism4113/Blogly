@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block title %}Post Detail Page{% endblock %} {%
+block content %}
+<div>
+	<div class="col-md-8">
+		<h2>{{post.title}}</h2>
+		<p>{{post.content}}</p>
+		<span id="author">{{post.user.first_name}} {{post.user.last_name}}</span>
+	</div>
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		onclick="location.href='/users/{{post.user.id}}'"
+	>
+		Cancel
+	</button>
+	<button
+		type="button"
+		class="btn btn-primary"
+		onclick="location.href='/posts/{{post.id}}/edit'"
+	>
+		Edit
+	</button>
+	<form action="/posts/{{post.id}}/delete" method="POST" class="d-inline">
+		<button
+			type="submit"
+			class="btn btn-danger"
+			onclick="location.href='/posts/{{post.id}}/delete'"
+		>
+			Delete
+		</button>
+	</form>
+</div>
+{% endblock %}

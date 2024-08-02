@@ -18,15 +18,5 @@ arwen = User(first_name="Liv", last_name="Tyler")
 boromir = User(first_name="Sean", last_name="Bean")
 
 
-db.session.add(gandalf)
-db.session.add(frodo)
-db.session.add(samwise)
-db.session.add(merry)
-db.session.add(pippin)
-db.session.add(aragorn)
-db.session.add(legolas)
-db.session.add(gimli)
-db.session.add(arwen)
-db.session.add(boromir)
-
+db.session.add_all([gandalf, frodo, samwise, merry, pippin, aragorn, legolas, gimli, arwen, boromir])
 db.session.commit()

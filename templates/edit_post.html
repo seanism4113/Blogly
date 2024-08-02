@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block title %}Post Edit Page{% endblock %} {% block
+content %}
+
+<h1>Edit Post</h1>
+
+<form action="/posts/{{post.id}}/edit" method="POST">
+	<div class="form-group row">
+		<label for="edit-title" class="col-sm-2 col-form-label">Title</label>
+		<div class="col-sm-10">
+			<input
+				type="text"
+				id="edit-title"
+				name="edit-title"
+				value="{{post.title}}"
+				class="form-control"
+				required
+			/>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="edit-content" class="col-sm-2 col-form-label"
+			>Post Content</label
+		>
+		<div class="col-sm-10">
+			<textarea
+				id="edit-content"
+				name="edit-content"
+				class="form-control"
+				rows="4"
+				required
+			>
+{{post.content}}</textarea
+			>
+		</div>
+	</div>
+	<div class="" form-group row>
+		<div class="col-sm-10 buttons-div">
+			<button
+				type="button"
+				class="btn btn-outline-info"
+				onclick="location.href = '/posts/{{post.id}}'"
+			>
+				Cancel
+			</button>
+			<button type="submit" class="btn btn-success">Edit</button>
+		</div>
+	</div>
+</form>
+{% endblock %}

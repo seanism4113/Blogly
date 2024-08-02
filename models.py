@@ -1,4 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy 
+from sqlalchemy.sql import func
 
 db = SQLAlchemy()
 
@@ -10,20 +11,34 @@ class User (db.Model):
     """ Class for storing information about users """
 
     # Initialize name of table
-    __tablename__ = "users"
+    __tablename__ = 'users'
 
     # Create table columns
 
-    id = db.Column(db.Integer,
-                   primary_key = True,
-                   autoincrement = True)
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     
-    first_name = db.Column(db.String(15),
-                           nullable = False)
+    first_name = db.Column(db.String(15), nullable = False)
 
-    last_name = db.Column(db.String(15),
-                           nullable = False)                
+    last_name = db.Column(db.String(15), nullable = False)                
 
-    image_url = db.Column(db.String(255),
-                          nullable = False;
+    image_url = db.Column(db.Text, nullable = False,
                           default = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg')
+    
+class Post(db.Model):
+    """ Class for storing information about user posts """
+
+    #Initialize name of table
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    
+    title = db.Column(db.String(25), nullable = False,)
+    
+    content = db.Column(db.String(255), nullable = False)
+    
+    created_at = db.Column(db.DateTime, default=func.now())
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    
+    user = db.relationship('User', backref = 'posts')
+
