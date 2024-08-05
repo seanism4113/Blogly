@@ -1,4 +1,4 @@
-from models import User, db
+from models import db, User, Post, Tag
 from app import app
 
 db.drop_all()
@@ -17,6 +17,14 @@ gimli = User(first_name="John", last_name="Rhys-Davies", image_url="https://www.
 arwen = User(first_name="Liv", last_name="Tyler")
 boromir = User(first_name="Sean", last_name="Bean")
 
-
 db.session.add_all([gandalf, frodo, samwise, merry, pippin, aragorn, legolas, gimli, arwen, boromir])
+db.session.commit()
+
+gpost1 = Post(title = 'No passing', content = 'You shall not pass', user_id = 1 )
+fpost1 = Post(title = 'It is mine!', content = 'This burden is mine and mine alone', user_id = 2)
+spost1 = Post(title = 'The gardener', content = 'Maybe I cannot carry it, but I can carry you', user_id = 3)
+ppost1 = Post(title = '2nd Breakfast', content = 'We''ve had one breakfast yes, but what about second breakfast?', user_id = 5 )
+bpost1 = Post(title = 'Not so simple', content = 'One does not simply walk into Mordor', user_id = 10 )
+
+db.session.add_all([gpost1, fpost1, spost1, ppost1, bpost1])
 db.session.commit()

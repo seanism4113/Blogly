@@ -1,6 +1,6 @@
 from unittest import TestCase
 from app import app
-from models import db, User, Post
+from models import db, User, Post, Tag
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///user_db_test'
 app.config['SQLALCHEMY_ECHO'] = False
@@ -23,8 +23,8 @@ class UserViewsTestCase(TestCase):
     def setUp(self):
         """Add sample user"""
 
-        db.session.query(User).delete()
         db.session.query(Post).delete()
+        db.session.query(User).delete()
 
         user = User(first_name="John", last_name="Doe", image_url="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg")
         db.session.add(user)
